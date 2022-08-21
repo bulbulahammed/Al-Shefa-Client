@@ -44,11 +44,11 @@ const Services = () => {
                 }
             </div>
             <div className="hero my-16">
-                <div class="hero-content flex-col lg:flex-row">
+                <div className="hero-content flex-col lg:flex-row">
                     <img src={treatment} className="lg:w-1/3 sm:w-full rounded-lg shadow-2xl" alt="Treatment img"/>
                     <div className='ml-24 text-left'>
                         <h1 className="text-5xl font-bold text-accent text-start">Exceptional Dental Care, on Your Terms.</h1>
-                        <p class="py-6 text-start text-base text-black">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
+                        <p className="py-6 text-start text-base text-black">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
                         <PrimaryButton>Get Started</PrimaryButton>
                     </div>
                 </div>
