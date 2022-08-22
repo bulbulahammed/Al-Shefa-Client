@@ -13,7 +13,7 @@ const Footer = () => {
         <div>
             <h4 className='uppercase font-bold text-lg text-gray-500 mb-5 mt-16'>Services</h4>
             <div className='flex flex-col text-gray-500'>
-                <Link className='text-base py-2' to="/">Emergency Checkup</Link>
+                <Link className='text-base py-2' to="/about">Emergency Checkup</Link>
                 <Link className='text-base py-2' to="/">Monthly Checkup</Link>
                 <Link className='text-base py-2' to="/">Weekly Checkup</Link>
                 <Link className='text-base py-2' to="/">Deep Checkup</Link>
