@@ -1,24 +1,24 @@
 import React from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import auth from './../../firebase.init';
 
-const Login = () => {
+const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth);
 
 
     const onSubmitForm = data =>{
         console.log(data);
-        signInWithEmailAndPassword(data.email,data.password);
+        createUserWithEmailAndPassword(data.email,data.password);
     }
 
     // Loading
@@ -36,16 +36,33 @@ const Login = () => {
     if(user || gUser){
         console.log(user || gUser);
     }
-
     return (
         <section className="">
             <div className="bg-grey-lighter min-h-screen flex flex-col">
                 <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                        <h1 className="mb-10 text-xl text-center">Login</h1>
+                        <h1 className="mb-10 text-xl text-center">Sign Up</h1>
                         
                         <form onSubmit={handleSubmit(onSubmitForm)}>
                             {/*----------- Label For Password ------------*/}
+                            <label className='label'>
+                                <span className='label-text text-sm'>Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                className="input input-bordered w-full max-w-xs"
+                                name="name"
+                                placeholder=""
+                                {...register('name', {
+                                    required: {
+                                        value: true,
+                                        message: 'You must enter your Name',
+                                    }
+                                })} />
+                                {/* Error Message */}
+                            <label className="label">
+                                {errors.name?.type === "required" && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
                             <label className='label'>
                                 <span className='label-text text-sm'>Email</span>
                             </label>
@@ -116,9 +133,9 @@ const Login = () => {
                             <button
                                 type="submit"
                                 className="w-full text-center py-3 rounded btn-accent text-white hover:bg-green-dark focus:outline-none my-1"
-                            >Log In</button>
+                            >Sign Up</button>
                         </form>
-                        <p className="text-xs">New to Al Shefa?<Link to="/signup" className="text-secondary">Create New Account</Link></p>
+                        <p className="text-xs">Already Have An Account?<Link to="/login" className="text-secondary">Log In</Link></p>
                     {/* -----------------------Divider---------------------- */}
                     <div className="divider">OR</div>
                     <button 
@@ -132,4 +149,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default SignUp;
