@@ -6,12 +6,22 @@ import auth from './../../firebase.init';
 const BookingModal = ({treatment,date,setTreatment}) => {
     const {_id,name, slots} = treatment;
     const [user, loading, error] = useAuthState(auth);
+    const formattedDate = format(date,"PP")
 
     const handleBooking = event=>{
         event.preventDefault();
         const  slot = event.target.slot.value;
         setTreatment(null);
         console.log(_id,slot,name);
+        const booking ={
+            treatmentId: _id,
+            treatment: name,
+            date:formattedDate,
+            slot,
+            patient: user.email,
+            patientName: user.displayName,
+            phone: event.target.phone.value,
+        }
     }
 
     return (
