@@ -1,23 +1,23 @@
 import React from 'react';
-import appointment from "../../assets/images/appointment.png";
+import appointmentBg from "../../assets/images/appointment.png";
 import doctor from "../../assets/images/doctor.png";
 import PrimaryButton from './../Shared/PrimaryButton';
 
 const MakeAppointment = () => {
     return (
-        <section style={{
-            background: `url(${appointment})`
-        }} className='flex  justify-center items-center lg:mt-56 mb-16 bg-cover sm:py-16 sm:px-7'>
-            <div className='hidden lg:block flex-1'>
+        <section 
+        style={{
+            background:`url(${appointmentBg})`
+        }}
+        className='flex justify-center items-center'>
+            <div className='flex-1 hidden lg:block'>
                 <img className='mt-[-180px]' src={doctor} alt="doctor"/>
             </div>
-            <div className='flex-1 pt-10'>
-                <h3 className='text-primary font-bold text-xl'>Appointment</h3>
-                <h2 className='text-4xl font-semibold text-white'>Make An Appointment Today</h2>
-                <p className='text-base text-white my-5'>
-                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page
-                </p>
-                <PrimaryButton>Get Started</PrimaryButton>
+            <div className='flex-1  sm:py-20 sm:px-7 md:py-20 md:px-7'>
+                <h3 className='text-xl text-secondary font-bold'>Appointment</h3>
+                <h2 className='text-3xl text-white font-bold py-5'>Make an Appointment Today</h2>
+                <p className='text-white pb-8 text-base'>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsumis that it has a more-or-less normal distribution of letters,as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page</p>
+                <PrimaryButton>Get started</PrimaryButton>
             </div>
         </section>
     );
