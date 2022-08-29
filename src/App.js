@@ -1,4 +1,6 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import About from "./pages/About/About";
 import Appointment from "./pages/Appointment/Appointment";
@@ -7,6 +9,8 @@ import Login from "./pages/Login/Login";
 import RequireAuth from "./pages/Login/RequireAuth";
 import SignUp from "./pages/Login/SignUp";
 import Navbar from './pages/Shared/Navbar';
+
+
 function App() {
   return (
     <div className="">
@@ -22,6 +26,7 @@ function App() {
           </RequireAuth>
         } />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

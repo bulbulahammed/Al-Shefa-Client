@@ -13,6 +13,7 @@ const BookingModal = ({treatment,date,setTreatment}) => {
         const  slot = event.target.slot.value;
         setTreatment(null);
         console.log(_id,slot,name);
+        
         const booking ={
             treatmentId: _id,
             treatment: name,
@@ -22,6 +23,20 @@ const BookingModal = ({treatment,date,setTreatment}) => {
             patientName: user.displayName,
             phone: event.target.phone.value,
         }
+
+        fetch('http://localhost:5000/add-booking',{
+            method: 'POST',
+            headers:{
+                'content-type':'application/json'
+            },
+            body: JSON.stringify(booking)
+        })
+        .then(res => res.json)
+        .then(data =>{
+            // To Close the modal
+            console.log(data);
+            setTreatment(null);
+        })
     }
 
     return (
