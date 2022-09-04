@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
 import Loading from '../Shared/Loading';
 import auth from './../../firebase.init';
+import useToken from './../../hooks/useToken';
 
 const SignUp = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -17,16 +18,10 @@ const SignUp = () => {
 
       const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
 
+    //   Custom Hooks
+    const [token] = useToken(user || gUser);
+      
       const navigate = useNavigate();
-
-
-    const onSubmitForm = async data =>{
-        console.log(data);
-        await createUserWithEmailAndPassword(data.email,data.password);
-        await updateProfile({ displayName: data.name });
-        console.log("Update Done");
-        navigate("/appointment");
-    }
 
     // Loading
     if(loading || gLoading || updating){
@@ -39,10 +34,18 @@ const SignUp = () => {
         signInError = <p className='text-red-500 text-2xs'>{error?.message || gError?.message || UpdateError?.message}</p>
     }
 
-    //    google User
-    if(user || gUser){
-        console.log(user || gUser);
-    }
+        //    google User
+        if(token){
+            console.log(token);
+             navigate("/appointment");
+        }
+        const onSubmitForm = async data =>{
+            console.log(data);
+            await createUserWithEmailAndPassword(data.email,data.password);
+            await updateProfile({ displayName: data.name });
+            // console.log("Update Done");
+            // navigate("/appointment");
+        }
     return (
         <section className="">
             <div className="bg-grey-lighter min-h-screen flex flex-col">
