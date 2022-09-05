@@ -34,9 +34,8 @@ const SignUp = () => {
         signInError = <p className='text-red-500 text-2xs'>{error?.message || gError?.message || UpdateError?.message}</p>
     }
 
-        //    google User
+
         if(token){
-            console.log(token);
              navigate("/appointment");
         }
         const onSubmitForm = async data =>{
