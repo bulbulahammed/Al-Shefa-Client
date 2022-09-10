@@ -8,7 +8,7 @@ const MyAppointments = () => {
 
     const [appointments, setAppointments] = useState([]);
     const [user] = useAuthState(auth);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (user) {
