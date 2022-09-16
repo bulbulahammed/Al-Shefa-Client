@@ -9,6 +9,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import MyAppointment from './pages/Dashboard/MyAppointment';
 import MyReview from './pages/Dashboard/MyReview';
 import Users from "./pages/Dashboard/Users";
+import History from "./pages/Dashboard/History";
 import Home from './pages/Home/Home';
 import Login from "./pages/Login/Login";
 import RequireAuth from "./pages/Login/RequireAuth";
@@ -43,11 +44,8 @@ function App() {
             {/* Nester Route */}
             <Route index element={<MyAppointment></MyAppointment>}></Route>
             <Route path="review" element={<MyReview></MyReview>}></Route>
-            <Route path="users" element={
-              
-            <Users></Users>
-            
-            }></Route>
+            <Route path="users" element={<Users></Users>}></Route>
+            <Route path="history" element={<History></History>}></Route>
         </Route>
       </Routes>
       <ToastContainer />
