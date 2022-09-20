@@ -93,7 +93,6 @@ const AddDoctor = () => {
                                     {errors.password?.type === "minLength" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                     {errors.password?.type === "maxLength" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
-                                <p className='text-2xs mb-4'>Forgot Password?</p>
                             <button
                                 type="submit"
                                 className="w-full max-w-xs text-center py-3 rounded btn-accent text-white hover:bg-green-dark focus:outline-none my-1"
