@@ -1,58 +1,14 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from 'react-router-dom';
-import Loading from '../Shared/Loading';
-import auth from './../../firebase.init';
-import useToken from './../../hooks/useToken';
-
-const SignUp = () => {
-    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const [
-        createUserWithEmailAndPassword,
-        user,
-        loading,
-        error,
-      ] = useCreateUserWithEmailAndPassword(auth);
-
-      const [updateProfile, updating, UpdateError] = useUpdateProfile(auth);
-
-    //   Custom Hooks
-    const [token] = useToken(user || gUser);
-      
-      const navigate = useNavigate();
-
-    // Loading
-    if(loading || gLoading || updating){
-        return <Loading></Loading>
+    const onSubmitForm = async data =>{
+        console.log("data",data);
     }
-
-    let signInError;
-    // Error
-    if(error || gError || UpdateError){
-        signInError = <p className='text-red-500 text-2xs'>{error?.message || gError?.message || UpdateError?.message}</p>
-    }
-
-
-        if(token){
-             navigate("/appointment");
-        }
-        const onSubmitForm = async data =>{
-            console.log(data);
-            await createUserWithEmailAndPassword(data.email,data.password);
-            await updateProfile({ displayName: data.name });
-            // console.log("Update Done");
-            // navigate("/appointment");
-        }
     return (
-        <section className="">
-            <div className="bg-grey-lighter min-h-screen flex flex-col">
-                <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                    <div className="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                        <h1 className="mb-10 text-xl text-center">Sign Up</h1>
-                        
-                        <form onSubmit={handleSubmit(onSubmitForm)}>
+        <div>
+            <h2>Add Doctor Page</h2>
+            <form onSubmit={handleSubmit(onSubmitForm)}>
                             {/*----------- Label For Password ------------*/}
                             <label className='label'>
                                 <span className='label-text text-sm'>Name</span>
@@ -111,21 +67,21 @@ const SignUp = () => {
 
                             {/*----------- Label For Password ------------*/}
                             <label className='label'>
-                                <span className='label-text text-sm'>Password</span>
+                                <span className='label-text text-sm'>Specialty</span>
                             </label>
                             <input
-                                type="password"
+                                type="text"
                                 className="input input-bordered w-full max-w-xs"
-                                name="password"
+                                name="specialty"
                                 placeholder=""
-                                {...register('password', {
+                                {...register('specialty', {
                                     required: {
                                         value: true,
-                                        message: 'You must enter A valid Password',
+                                        message: 'You must enter specialty',
                                     },
                                     minLength: {
-                                        value: 6,
-                                        message: 'This is not long enough to a Strong Password',
+                                        value: 2,
+                                        message: 'This is not long enough to a be a Specialty',
                                     },
                                     maxLength: {
                                         value: 32,
@@ -138,24 +94,13 @@ const SignUp = () => {
                                     {errors.password?.type === "maxLength" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
                                 <p className='text-2xs mb-4'>Forgot Password?</p>
-                                {signInError}
                             <button
                                 type="submit"
                                 className="w-full max-w-xs text-center py-3 rounded btn-accent text-white hover:bg-green-dark focus:outline-none my-1"
-                            >Sign Up</button>
+                            >Add</button>
                         </form>
-                        <p className="text-xs">Already Have An Account?<Link to="/login" className="text-secondary">Log In</Link></p>
-                    {/* -----------------------Divider---------------------- */}
-                    <div className="divider">OR</div>
-                    <button 
-                    onClick={() => signInWithGoogle()}
-                    className="btn btn-outline w-full"
-                    >Continue With Google</button>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     );
 };
 
-export default SignUp;
+export default AddDoctor;
