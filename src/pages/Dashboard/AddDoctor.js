@@ -1,13 +1,28 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import Loading from '../Shared/Loading';
 const AddDoctor = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
+
     const onSubmitForm = async data =>{
         console.log("data",data);
     }
+    const { data: services, isLoading, refetch } = useQuery(['users'], () => fetch('http://localhost:5000/service/'
+    , {
+        method: 'GET',
+        headers: {
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }
+    ).then(res => res.json()));
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     return (
-        <div>
-            <h2>Add Doctor Page</h2>
+        <div className=''>
+            <h2>Add Doctor</h2>
+            <h2>Total services: {services.length}</h2>
             <form onSubmit={handleSubmit(onSubmitForm)}>
                             {/*----------- Label For Password ------------*/}
                             <label className='label'>
@@ -21,7 +36,7 @@ const AddDoctor = () => {
                                 {...register('name', {
                                     required: {
                                         value: true,
-                                        message: 'You must enter your Name',
+                                        message: "You must enter Doctor's Name",
                                     }
                                 })} />
                                 {/* Error Message */}
@@ -39,7 +54,7 @@ const AddDoctor = () => {
                                 {...register('email', {
                                     required: {
                                         value: true,
-                                        message: 'You must enter your email address',
+                                        message: "You must enter Doctor's email address",
                                     },
                                     minLength: {
                                         value: 8,
@@ -48,10 +63,6 @@ const AddDoctor = () => {
                                     maxLength: {
                                         value: 120,
                                         message: 'This is too long',
-                                    },
-                                    pattern: {
-                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                                        message: 'This needs to be a valid email address',
                                     },
                                 })} />
                                 {/* Error Message */}
@@ -64,35 +75,38 @@ const AddDoctor = () => {
 
                                     {errors.email?.type === "pattern" && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                                 </label>
-
-                            {/*----------- Label For Password ------------*/}
+                                
+                                {/* Doctor's Specialty */}
                             <label className='label'>
                                 <span className='label-text text-sm'>Specialty</span>
                             </label>
+                            <select {...register('specialty')} className="select select-bordered w-full max-w-xs">
+                                {
+                                    services.map(service => <option
+                                    key={service._id}
+                                    value="service.name"
+                                    >{service.name}</option>)
+                                }
+                            </select>
+                            {/* Doctors Photo */}
+                            <label className='label'>
+                                <span className='label-text text-sm'>Photo</span>
+                            </label>
                             <input
-                                type="text"
+                                type="file"
                                 className="input input-bordered w-full max-w-xs"
-                                name="specialty"
+                                name="name"
                                 placeholder=""
-                                {...register('specialty', {
+                                {...register('name', {
                                     required: {
                                         value: true,
-                                        message: 'You must enter specialty',
-                                    },
-                                    minLength: {
-                                        value: 2,
-                                        message: 'This is not long enough to a be a Specialty',
-                                    },
-                                    maxLength: {
-                                        value: 32,
-                                        message: 'This is too long',
-                                    },
+                                        message: "You must enter Doctor's Name",
+                                    }
                                 })} />
-                                <label className="label">
-                                    {errors.password?.type === "required" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                    {errors.password?.type === "minLength" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                    {errors.password?.type === "maxLength" && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                </label>
+                                {/* Error Message */}
+                            <label className="label">
+                                {errors.name?.type === "required" && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                            </label>
                             <button
                                 type="submit"
                                 className="w-full max-w-xs text-center py-3 rounded btn-accent text-white hover:bg-green-dark focus:outline-none my-1"
