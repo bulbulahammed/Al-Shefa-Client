@@ -1,11 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { toast } from 'react-toastify';
 import Loading from '../Shared/Loading';
 
 
 const AddDoctor = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit,reset } = useForm();
     const imgStorageKey = "217c7fe015a3f8046407326d976c0197";
     const onSubmitForm = async data =>{
         const image = data.image[0];
@@ -28,6 +29,26 @@ const AddDoctor = () => {
                     img: img,
                 }
                 // Send it to Database
+                fetch('http://localhost:5000/doctor',{
+                    method:'POST',
+                    headers:{
+                        'content-type':'application/json',
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+    
+                    },
+                    body: JSON.stringify(doctor),
+                })
+                .then(res => res.json())
+                .then(inserted =>{
+                    console.log("doctor",inserted);
+                    if(inserted.insertedId){
+                        toast.success("Doctor Added Successfully");
+                        reset();
+                    }
+                    else{
+                        toast.error("Failed To Add !");
+                    }
+                })
                 
             }
             console.log('imgbb', result)

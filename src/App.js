@@ -8,6 +8,7 @@ import Appointment from "./pages/Appointment/Appointment";
 import AddDoctor from './pages/Dashboard/AddDoctor';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import History from "./pages/Dashboard/History";
+import ManageDoctors from './pages/Dashboard/ManageDoctors';
 import MyAppointment from './pages/Dashboard/MyAppointment';
 import MyReview from './pages/Dashboard/MyReview';
 import Users from "./pages/Dashboard/Users";
@@ -52,6 +53,9 @@ function App() {
             
             <Route path="addDoctor" element={<RequireAdmin>
               <AddDoctor></AddDoctor>
+            </RequireAdmin>}></Route>
+            <Route path="manageDoctor" element={<RequireAdmin>
+              <ManageDoctors></ManageDoctors>
             </RequireAdmin>}></Route>
             <Route path="history" element={<History></History>}></Route>
         </Route>
