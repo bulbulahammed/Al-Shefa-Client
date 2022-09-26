@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useState } from 'react';
 import Loading from '../Shared/Loading';
+import DeleteConfirm from './DeleteConfirm';
 import DoctorRow from './DoctorRow';
 
 const ManageDoctors = () => {
+    const [deletingDoctor, setDeletingDoctor] = useState();
     const {data: doctors,isLoading,refetch} = useQuery(['doctors'],()=> fetch('http://localhost:5000/doctor',{
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,
@@ -35,11 +37,20 @@ const ManageDoctors = () => {
                             doctor={doctor}
                             index={index}
                             refetch={refetch}
+                            setDeletingDoctor={setDeletingDoctor}
                             ></DoctorRow>)
                         }
                     </tbody>
                 </table>
-                </div>
+            </div>
+            {
+              deletingDoctor && 
+              <DeleteConfirm
+              deletingDoctor={deletingDoctor}
+              refetch={refetch}
+              setDeletingDoctor={setDeletingDoctor}
+              ></DeleteConfirm>
+            }
         </div>
     );
 };
