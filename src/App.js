@@ -11,6 +11,7 @@ import History from "./pages/Dashboard/History";
 import ManageDoctors from './pages/Dashboard/ManageDoctors';
 import MyAppointment from './pages/Dashboard/MyAppointment';
 import MyReview from './pages/Dashboard/MyReview';
+import Payment from './pages/Dashboard/Payment';
 import Users from "./pages/Dashboard/Users";
 import Home from './pages/Home/Home';
 import Login from "./pages/Login/Login";
@@ -58,6 +59,7 @@ function App() {
               <ManageDoctors></ManageDoctors>
             </RequireAdmin>}></Route>
             <Route path="history" element={<History></History>}></Route>
+            <Route path="payment/:id" element={<Payment></Payment>}></Route>
         </Route>
       </Routes>
       <ToastContainer />
