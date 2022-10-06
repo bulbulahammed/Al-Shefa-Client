@@ -14,7 +14,7 @@ const CheckoutForm = ({appointment}) => {
     const {_id,price,patient,patientName} = appointment;
 
     useEffect( ()=>{
-        fetch("https://al-shefa-server.herokuapp.com//create-payment-intent",{
+        fetch("https://al-shefa-server.herokuapp.com/create-payment-intent",{
             method:'POST',
             headers: {
                 'content-type':'application/json',
@@ -68,7 +68,6 @@ const CheckoutForm = ({appointment}) => {
           }else{
             setCardError("");
             setTransactionId(paymentIntent.id)
-            console.log(paymentIntent);
             setSuccess("Congrats! Your Payment Is Completed");
             // Store payment on Database
             const payment = {
@@ -76,7 +75,7 @@ const CheckoutForm = ({appointment}) => {
                 transactionId: paymentIntent.id,
                 
             }
-            fetch(`https://al-shefa-server.herokuapp.com//booking/${_id}`,{
+            fetch(`https://al-shefa-server.herokuapp.com/booking/${_id}`,{
                 method:'PATCH',
                 headers: {
                     'content-type':'application/json',
@@ -86,7 +85,6 @@ const CheckoutForm = ({appointment}) => {
             }).then(res=>res.json())
             .then(data =>{
                 setProcessing(false);
-                console.log(data);
             })
           }
     }

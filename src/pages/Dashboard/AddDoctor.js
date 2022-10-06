@@ -13,7 +13,6 @@ const AddDoctor = () => {
         const formData = new FormData();
         formData.append('image',image)
         const url = `https://api.imgbb.com/1/upload?key=${imgStorageKey}`;
-        console.log("data",data);
         fetch(url,{
             method: 'POST',
             body: formData,
@@ -29,7 +28,7 @@ const AddDoctor = () => {
                     img: img,
                 }
                 // Send it to Database
-                fetch('https://al-shefa-server.herokuapp.com//doctor',{
+                fetch('https://al-shefa-server.herokuapp.com/doctor',{
                     method:'POST',
                     headers:{
                         'content-type':'application/json',
@@ -40,7 +39,6 @@ const AddDoctor = () => {
                 })
                 .then(res => res.json())
                 .then(inserted =>{
-                    console.log("doctor",inserted);
                     if(inserted.insertedId){
                         toast.success("Doctor Added Successfully");
                         reset();
@@ -51,11 +49,10 @@ const AddDoctor = () => {
                 })
                 
             }
-            console.log('imgbb', result)
         })
     }
     
-    const { data: services, isLoading, refetch } = useQuery(['users'], () => fetch('https://al-shefa-server.herokuapp.com//service/',
+    const { data: services, isLoading, refetch } = useQuery(['users'], () => fetch('https://al-shefa-server.herokuapp.com/service/',
         {
             method: 'GET',
             headers: {

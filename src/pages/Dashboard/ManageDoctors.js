@@ -33,7 +33,7 @@ const ManageDoctors = () => {
                     {/* Table Row */}
                         {
                             doctors.map((doctor,index)=><DoctorRow
-                            key={doctor._key}
+                            key={index}
                             doctor={doctor}
                             index={index}
                             refetch={refetch}

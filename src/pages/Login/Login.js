@@ -43,7 +43,6 @@ const Login = () => {
     //    google User
 
     const onSubmitForm = data =>{
-        console.log(data);
         signInWithEmailAndPassword(data.email,data.password);
     }
 

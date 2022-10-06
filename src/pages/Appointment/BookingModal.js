@@ -13,7 +13,6 @@ const BookingModal = ({treatment,date,setTreatment,refetch}) => {
         event.preventDefault();
         const  slot = event.target.slot.value;
         setTreatment(null);
-        console.log(_id,slot,name);
         
         const booking ={
             treatmentId: _id,
@@ -36,7 +35,6 @@ const BookingModal = ({treatment,date,setTreatment,refetch}) => {
         .then(res => res.json())
         .then(data =>{
             // To Close the modal
-            console.log(data);
             if(data.success){
                toast(`Appointment is set, ${formattedDate} at${slot}`) 
             }else{

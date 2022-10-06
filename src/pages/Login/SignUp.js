@@ -39,11 +39,8 @@ const SignUp = () => {
              navigate("/appointment");
         }
         const onSubmitForm = async data =>{
-            console.log(data);
             await createUserWithEmailAndPassword(data.email,data.password);
             await updateProfile({ displayName: data.name });
-            // console.log("Update Done");
-            // navigate("/appointment");
         }
     return (
         <section className="">
