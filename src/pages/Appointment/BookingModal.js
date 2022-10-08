@@ -25,7 +25,7 @@ const BookingModal = ({treatment,date,setTreatment,refetch}) => {
             phone: event.target.phone.value,
         }
 
-        fetch('https://al-shefa-server.herokuapp.com/add-booking',{
+        fetch('http://localhost:5000/add-booking',{
             method: 'POST',
             headers:{
                 'content-type':'application/json'
