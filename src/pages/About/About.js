@@ -1,16 +1,21 @@
 import React from 'react';
+import AboutBanner from './AboutBanner';
+import AboutHero from './AboutHero';
+import CheckUp from './CheckUp';
+import CounterUp from './CounterUp';
 
 const About = () => {
     return (
-            <div className="hero" style={{ backgroundImage: `url("../../assets/images/about-banner.jpg")` }}>
-                {/* <div className="hero-overlay bg-opacity-60"></div> */}
-                <div className="hero-content text-center text-neutral-content">
-                    <div className="max-w-md">
-                        <h1 className="mb-5 text-5xl font-bold text-green-500">About Us</h1>
-                        <button className="btn btn-primary">Get Started</button>
-                    </div>
-                </div>
-            </div>
+        <div>
+            {/* Banner */}
+            <AboutBanner></AboutBanner>
+            {/* About Hero */}
+            <AboutHero></AboutHero>
+            {/* Counter Up */}
+            <CounterUp></CounterUp>
+            {/* Check up And Contact */}
+            <CheckUp></CheckUp>
+        </div>
     );
 };
 

@@ -19,6 +19,7 @@ import RequireAdmin from './pages/Login/RequireAdmin';
 import RequireAuth from "./pages/Login/RequireAuth";
 import SignUp from "./pages/Login/SignUp";
 import Navbar from './pages/Shared/Navbar';
+import Footer from './pages/Shared/Footer';
 
 
 
@@ -62,6 +63,7 @@ function App() {
             <Route path="payment/:id" element={<Payment></Payment>}></Route>
         </Route>
       </Routes>
+      <Footer></Footer>
       <ToastContainer />
       </QueryClientProvider>
     </div>
