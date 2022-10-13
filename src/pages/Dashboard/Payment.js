@@ -12,7 +12,7 @@ const stripePromise = loadStripe('pk_test_51IeJLsIAaC3TIFJNwJ36AiZ3PVdC0gWWoRAPI
 
 const Payment = () => {
     const {id} = useParams();
-    const url = `https://al-shefa-server.vercel.app/booking/${id}`;
+    const url = `https://server-alshefa.onrender.com/booking/${id}`;
     const {data: appointment,isLoading} = useQuery(['booking',id], ()=> fetch(url    , {
         method: 'GET',
         headers: {

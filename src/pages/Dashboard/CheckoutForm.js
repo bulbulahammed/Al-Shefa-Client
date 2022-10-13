@@ -14,7 +14,7 @@ const CheckoutForm = ({appointment}) => {
     const {_id,price,patient,patientName} = appointment;
 
     useEffect( ()=>{
-        fetch("https://al-shefa-server.vercel.app/create-payment-intent",{
+        fetch("https://server-alshefa.onrender.com/create-payment-intent",{
             method:'POST',
             headers: {
                 'content-type':'application/json',
@@ -75,7 +75,7 @@ const CheckoutForm = ({appointment}) => {
                 transactionId: paymentIntent.id,
                 
             }
-            fetch(`https://al-shefa-server.vercel.app/booking/${_id}`,{
+            fetch(`https://server-alshefa.onrender.com/booking/${_id}`,{
                 method:'PATCH',
                 headers: {
                     'content-type':'application/json',

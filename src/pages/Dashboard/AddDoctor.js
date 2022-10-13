@@ -28,7 +28,7 @@ const AddDoctor = () => {
                     img: img,
                 }
                 // Send it to Database
-                fetch('https://al-shefa-server.vercel.app/doctor',{
+                fetch('https://server-alshefa.onrender.com/doctor',{
                     method:'POST',
                     headers:{
                         'content-type':'application/json',
@@ -52,7 +52,7 @@ const AddDoctor = () => {
         })
     }
     
-    const { data: services, isLoading, refetch } = useQuery(['users'], () => fetch('https://al-shefa-server.vercel.app/service/',
+    const { data: services, isLoading, refetch } = useQuery(['users'], () => fetch('https://server-alshefa.onrender.com/service/',
         {
             method: 'GET',
             headers: {

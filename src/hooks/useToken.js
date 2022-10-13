@@ -6,7 +6,7 @@ const useToken = user =>{
         const email = user?.user?.email;
         const currentUser = {email: email}
         if(email){
-            fetch(`https://al-shefa-server.vercel.app/user/${email}`,{
+            fetch(`https://server-alshefa.onrender.com/user/${email}`,{
                 method:'PUT',
                 headers:{
                     'content-type':'application/json',

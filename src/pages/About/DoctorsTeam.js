@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import Doctor from './Doctor';
 
 const DoctorsTeam = () => {
-    const { data: doctors, isLoading, refetch } = useQuery(['users'], () => fetch('https://al-shefa-server.vercel.app/doctor'
+    const { data: doctors, isLoading, refetch } = useQuery(['users'], () => fetch('https://server-alshefa.onrender.com/doctor'
     , {
         method: 'GET',
         headers: {

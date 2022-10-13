@@ -5,7 +5,7 @@ const useAdmin = user =>{
     useEffect(()=>{
         const email = user?.email;  
         if(email){
-            fetch(`https://al-shefa-server.vercel.app/admin/${email}`,{
+            fetch(`https://server-alshefa.onrender.com/admin/${email}`,{
                 method:'GET',
                 headers:{
                     'content-type':'application/json',

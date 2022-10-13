@@ -6,7 +6,7 @@ import DoctorRow from './DoctorRow';
 
 const ManageDoctors = () => {
     const [deletingDoctor, setDeletingDoctor] = useState();
-    const {data: doctors,isLoading,refetch} = useQuery(['doctors'],()=> fetch('https://al-shefa-server.vercel.app/doctor',{
+    const {data: doctors,isLoading,refetch} = useQuery(['doctors'],()=> fetch('https://server-alshefa.onrender.com/doctor',{
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },

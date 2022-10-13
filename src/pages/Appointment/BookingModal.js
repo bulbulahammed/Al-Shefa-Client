@@ -25,7 +25,7 @@ const BookingModal = ({treatment,date,setTreatment,refetch}) => {
             phone: event.target.phone.value,
         }
 
-        fetch('https://al-shefa-server.vercel.app/add-booking',{
+        fetch('https://server-alshefa.onrender.com/add-booking',{
             method: 'POST',
             headers:{
                 'content-type':'application/json'

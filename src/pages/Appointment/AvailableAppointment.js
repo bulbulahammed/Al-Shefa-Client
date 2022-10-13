@@ -11,7 +11,7 @@ const AvailableAppointment = ({date}) => {
 
     const formattedDate = format(date, 'PP');
     
-    const { data: services, isLoading,refetch} = useQuery(['available', formattedDate], () => fetch(`https://al-shefa-server.vercel.app/available?date=${formattedDate}`)
+    const { data: services, isLoading,refetch} = useQuery(['available', formattedDate], () => fetch(`https://server-alshefa.onrender.com/available?date=${formattedDate}`)
         .then(res => res.json()))
 
     if(isLoading){
@@ -20,7 +20,7 @@ const AvailableAppointment = ({date}) => {
 
 
     // useEffect(() => {
-    //     fetch(`https://al-shefa-server.vercel.app/available?date=${formattedDate}`)
+    //     fetch(`https://server-alshefa.onrender.com/available?date=${formattedDate}`)
     //         .then(res => res.json())
     //         .then(data => setServices(data));
     // }, [])
