@@ -20,6 +20,7 @@ import RequireAuth from "./pages/Login/RequireAuth";
 import SignUp from "./pages/Login/SignUp";
 import Navbar from './pages/Shared/Navbar';
 import Footer from './pages/Shared/Footer';
+import ContactPage from './pages/Contact/ContactPage';
 
 
 
@@ -33,6 +34,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home/>} />
+        <Route path="/contact" element={<ContactPage/>} />
         <Route path="/about" element={<About/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/signup" element={<SignUp/>} />

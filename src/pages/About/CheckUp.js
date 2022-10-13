@@ -19,7 +19,7 @@ const CheckUp = () => {
                         <input type="text-area" placeholder="Write Your Message" className="input input-bordered" />
                     </div>
                     <div className="mt-6">
-                    <button className="btn btn-primary text-white font-bold uppercase bg-gradient-to-r from-primary to-secondary">Appointment</button>
+                    <button className="btn btn-primary text-white font-bold uppercase bg-gradient-to-r from-primary to-secondary">Send</button>
                     </div>
                 </div>
             </div>

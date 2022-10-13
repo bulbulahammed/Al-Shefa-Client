@@ -3,6 +3,7 @@ import AboutBanner from './AboutBanner';
 import AboutHero from './AboutHero';
 import CheckUp from './CheckUp';
 import CounterUp from './CounterUp';
+import DoctorsTeam from './DoctorsTeam';
 
 const About = () => {
     return (
@@ -15,6 +16,8 @@ const About = () => {
             <CounterUp></CounterUp>
             {/* Check up And Contact */}
             <CheckUp></CheckUp>
+            {/* Doctors Team */}
+            <DoctorsTeam></DoctorsTeam>
         </div>
     );
 };
