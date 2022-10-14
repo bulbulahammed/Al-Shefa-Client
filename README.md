@@ -1,3 +1,46 @@
+# Al shefa Medical Service App
+
+
+
+
+Al Shefa is a Modern medical service app, where user can select an appointment on a preferabel date.After sign-up and login they can check about their booked appointment and and payment information from the Dashboardh option.
+
+- User Friendly. 
+- Beutiful Design.
+- Easy to use.
+
+## Features
+
+- Clear Code and Unique Design.
+- Fully Functional Dashboard.
+- Firebase Authentication.
+- Admin and User Role.
+- Add Doctors and Delete from Dashboard.
+
+
+## Tech
+
+All latest Technogies are used here.
+
+-  HTML5
+- React js
+- Express
+- Nodejs
+- MongoDB
+- Tailwind CSS
+- Daisy UI
+- Stripe Payment
+- date-fns
+- JWT (JsonWebToken)
+- React CuntUp
+- React Query
+- React Day Picker
+- React Toastify
+
+Visit Live Site : https://al-shefa.web.app/
+
+Note: Login for For Better experience.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +111,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
