@@ -6,7 +6,7 @@ const CheckoutForm = ({appointment}) => {
     const elements = useElements();
     const [cardError, setCardError] = useState("");
     const [success, setSuccess] = useState("");
-    const [processing, setProcessing] = useState(false);
+    const [setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState("");
     const [clientSecret,setClientSecret] = useState("");
 
@@ -41,7 +41,7 @@ const CheckoutForm = ({appointment}) => {
             return;
         }
 
-        const {error,paymentMethod} = await stripe.createPaymentMethod({
+        const {error} = await stripe.createPaymentMethod({
             type: 'card',
             card
         });
