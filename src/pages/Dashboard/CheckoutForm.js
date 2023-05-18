@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import Loading from '../Shared/Loading';
 
 const CheckoutForm = ({appointment}) => {
     const stripe = useStripe();
@@ -107,9 +108,9 @@ const CheckoutForm = ({appointment}) => {
                         },
                     }}
                 />
-                <button className='btn btn-xs btn-success text-white' type="submit" disabled={!stripe || !clientSecret}>
+                {processing?(<Loading/>):(<button className='btn btn-xs btn-success text-white' type="submit" disabled={!stripe || !clientSecret}>
                 Pay
-                </button>
+                </button>)}
             </form>
             {
                 cardError && <p className='text-red-500'>{cardError}</p>
