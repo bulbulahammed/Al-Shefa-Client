@@ -6,7 +6,7 @@ import DoctorRow from './DoctorRow';
 
 const ManageDoctors = () => {
     const [deletingDoctor, setDeletingDoctor] = useState();
-    const {data: doctors,isLoading,refetch} = useQuery(['doctors'],()=> fetch('https://al-shefa-server.up.railway.app/doctor',{
+    const {data: doctors,isLoading,refetch} = useQuery(['doctors'],()=> fetch('https://al-shefa-server-production.up.railway.app/doctor',{
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`,
         },

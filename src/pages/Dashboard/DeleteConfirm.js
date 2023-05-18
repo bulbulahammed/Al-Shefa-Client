@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteConfirm = ({deletingDoctor,refetch,setDeletingDoctor}) => {
     const {name,email} = deletingDoctor;
     const handleDelete = () =>{
-        fetch(`https://al-shefa-server.up.railway.app/doctor/${email}`,{
+        fetch(`https://al-shefa-server-production.up.railway.app/doctor/${email}`,{
             method: 'DELETE',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`,

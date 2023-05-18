@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const UserRow = ({user,refetch,index}) => {
     const {email,role} = user;
     const makeAdmin = () =>{
-        fetch(`https://al-shefa-server.up.railway.app/user/admin/${email}`, {
+        fetch(`https://al-shefa-server-production.up.railway.app/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

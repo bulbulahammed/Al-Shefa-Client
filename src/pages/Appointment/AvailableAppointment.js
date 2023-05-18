@@ -11,7 +11,7 @@ const AvailableAppointment = ({date}) => {
 
     const formattedDate = format(date, 'PP');
     
-    const { data: services, isLoading,refetch} = useQuery(['available', formattedDate], () => fetch(`https://al-shefa-server.up.railway.app/available?date=${formattedDate}`)
+    const { data: services, isLoading,refetch} = useQuery(['available', formattedDate], () => fetch(`https://al-shefa-server-production.up.railway.app/available?date=${formattedDate}`)
         .then(res => res.json()))
 
     if(isLoading){
@@ -20,7 +20,7 @@ const AvailableAppointment = ({date}) => {
 
 
     // useEffect(() => {
-    //     fetch(`https://al-shefa-server.up.railway.app/available?date=${formattedDate}`)
+    //     fetch(`https://al-shefa-server-production.up.railway.app/available?date=${formattedDate}`)
     //         .then(res => res.json())
     //         .then(data => setServices(data));
     // }, [])

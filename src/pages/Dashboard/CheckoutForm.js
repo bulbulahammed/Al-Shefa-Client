@@ -6,7 +6,7 @@ const CheckoutForm = ({appointment}) => {
     const elements = useElements();
     const [cardError, setCardError] = useState("");
     const [success, setSuccess] = useState("");
-    const [setProcessing] = useState(false);
+    const [processing,setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState("");
     const [clientSecret,setClientSecret] = useState("");
 
@@ -14,7 +14,7 @@ const CheckoutForm = ({appointment}) => {
     const {_id,price,patient,patientName} = appointment;
 
     useEffect( ()=>{
-        fetch("https://al-shefa-server.up.railway.app/create-payment-intent",{
+        fetch("https://al-shefa-server-production.up.railway.app/create-payment-intent",{
             method:'POST',
             headers: {
                 'content-type':'application/json',
@@ -75,7 +75,7 @@ const CheckoutForm = ({appointment}) => {
                 transactionId: paymentIntent.id,
                 
             }
-            fetch(`https://al-shefa-server.up.railway.app/booking/${_id}`,{
+            fetch(`https://al-shefa-server-production.up.railway.app/booking/${_id}`,{
                 method:'PATCH',
                 headers: {
                     'content-type':'application/json',
