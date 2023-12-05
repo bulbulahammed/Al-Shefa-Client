@@ -4,7 +4,7 @@ import Loading from '../Shared/Loading';
 import UserRow from './UserRow';
 
 const Users = () => {
-    const { data: users, isLoading, refetch } = useQuery(['users'], () => fetch('https://al-shefa-server-production.up.railway.app/user'
+    const { data: users, isLoading, refetch } = useQuery(['users'], () => fetch('https://al-shefa-server-bulbulahammed.vercel.app/user'
     , {
         method: 'GET',
         headers: {

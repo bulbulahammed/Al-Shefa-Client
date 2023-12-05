@@ -28,7 +28,7 @@ const AddDoctor = () => {
                     img: img,
                 }
                 // Send it to Database
-                fetch('https://al-shefa-server-production.up.railway.app/doctor',{
+                fetch('https://al-shefa-server-bulbulahammed.vercel.app/doctor',{
                     method:'POST',
                     headers:{
                         'content-type':'application/json',
@@ -52,7 +52,7 @@ const AddDoctor = () => {
         })
     }
     
-    const { data: services, isLoading } = useQuery(['users'], () => fetch('https://al-shefa-server-production.up.railway.app/service/',
+    const { data: services, isLoading } = useQuery(['users'], () => fetch('https://al-shefa-server-bulbulahammed.vercel.app/service/',
         {
             method: 'GET',
             headers: {

@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import About from "./pages/About/About";
 import Appointment from "./pages/Appointment/Appointment";
+import ContactPage from './pages/Contact/ContactPage';
 import AddDoctor from './pages/Dashboard/AddDoctor';
 import Dashboard from "./pages/Dashboard/Dashboard";
 import History from "./pages/Dashboard/History";
@@ -18,9 +19,8 @@ import Login from "./pages/Login/Login";
 import RequireAdmin from './pages/Login/RequireAdmin';
 import RequireAuth from "./pages/Login/RequireAuth";
 import SignUp from "./pages/Login/SignUp";
-import Navbar from './pages/Shared/Navbar';
 import Footer from './pages/Shared/Footer';
-import ContactPage from './pages/Contact/ContactPage';
+import Navbar from './pages/Shared/Navbar';
 
 
 

@@ -25,7 +25,7 @@ const BookingModal = ({treatment,date,setTreatment,refetch}) => {
             phone: event.target.phone.value,
         }
 
-        fetch('https://al-shefa-server-production.up.railway.app/add-booking',{
+        fetch('https://al-shefa-server-bulbulahammed.vercel.app/add-booking',{
             method: 'POST',
             headers:{
                 'content-type':'application/json'

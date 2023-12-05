@@ -6,7 +6,7 @@ const useToken = user =>{
         const email = user?.user?.email;
         const currentUser = {email: email}
         if(email){
-            fetch(`https://al-shefa-server-production.up.railway.app/user/${email}`,{
+            fetch(`https://al-shefa-server-bulbulahammed.vercel.app/user/${email}`,{
                 method:'PUT',
                 headers:{
                     'content-type':'application/json',
