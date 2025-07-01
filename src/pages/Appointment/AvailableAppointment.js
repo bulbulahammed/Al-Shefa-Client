@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { format } from 'date-fns';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Loading from '../Shared/Loading';
 import BookingModal from './BookingModal';
 import Service from './Service';

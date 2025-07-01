@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
 import Loading from '../Shared/Loading';
 import UserRow from './UserRow';
 
@@ -25,7 +24,7 @@ const Users = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
